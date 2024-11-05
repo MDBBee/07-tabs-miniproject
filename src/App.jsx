@@ -11,9 +11,7 @@ const App = () => {
   const [currentItem, setCurrentItem] = useState(0);
 
   const setCurrent = (index) => {
-    if (index === 3) setCurrentItem(0);
-    if (index === 2) setCurrentItem(1);
-    if (index === 1) setCurrentItem(2);
+    setCurrentItem(index);
   };
 
   const fetchJobs = async () => {
@@ -43,7 +41,11 @@ const App = () => {
 
   return (
     <section className="jobs-center">
-      <BtnContainer jobs={jobs} setCurrent={setCurrent} />
+      <BtnContainer
+        jobs={jobs}
+        setCurrent={setCurrent}
+        currentItem={currentItem}
+      />
       {/* <div className="loading"></div> */}
       <JobInfo jobs={jobs} currentItem={currentItem} />
     </section>

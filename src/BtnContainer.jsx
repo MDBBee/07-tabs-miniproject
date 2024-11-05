@@ -1,11 +1,11 @@
-function BtnContainer({ jobs, setCurrent }) {
+function BtnContainer({ jobs, setCurrent, currentItem }) {
   return (
     <div className="btn-container">
-      {jobs.map((job) => (
+      {jobs.map((job, index) => (
         <button
           key={job.id}
-          className="job-btn"
-          onClick={() => setCurrent(job.order)}
+          className={index === currentItem ? 'job-btn  active-btn' : 'job-btn'}
+          onClick={() => setCurrent(index)}
         >
           {job.company}
         </button>
